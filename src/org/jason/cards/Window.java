@@ -142,6 +142,9 @@ public class Window extends JFrame {
 			if(player_hand.isOver21()){
 				message = "PLAYER BUST";
 				message_box.setText(message);
+				hit.setEnabled(false);
+
+				
 			}
 			
 			
@@ -154,16 +157,34 @@ public class Window extends JFrame {
 		
 		}
 		else if(event.getSource()==stay){
-		message = "stay";
-		message_box.setText(message);
-		
-		PlayCard workingCard = deck.poll();
-		cpu_hand.addCard(workingCard);
-		
-		bottom_center.add(new JButton(workingCard.getImgUri())); 
-		bottom_center.revalidate();
-		bottom_center.validate();
-		
+			message = "stay";
+			message_box.setText(message);
+			hit.setEnabled(false);
+			while(cpu_hand.count()<14){
+				PlayCard workingCard = deck.poll();
+				cpu_hand.addCard(workingCard);
+				
+				top_center.add(new JButton(workingCard.getImgUri())); 
+				top_center.revalidate();
+				top_center.validate();
+				
+			}
+			
+			if(cpu_hand.count()>21){
+				message = "cpu bust";
+				
+			}
+			else if(cpu_hand.count()<player_hand.count()){
+				message = "player win";		
+			}
+			else if(cpu_hand.count()>player_hand.count()){
+				message = "cpu win";
+			}
+			else{
+				message = "tie";
+			}
+			message_box.setText(message);
+			
 		
 		}
 		
