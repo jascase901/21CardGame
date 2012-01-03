@@ -83,6 +83,7 @@ public class Window extends JFrame {
 		bottom.add(bottom_right);
 		
 		
+		
 		hit = new JButton("Hit");
 		stay = new JButton("Stay");
 		bottom_left.setLayout(new GridLayout(2,1,1,1));
@@ -112,15 +113,15 @@ public class Window extends JFrame {
 		deck.shuffle();
 		//give player 2 cards
 		workingCard = deck.poll();
-		//ImageIcon cardImage = createImageIcon("back-blue-75-1.png", "");
-		//player_hand.addCard(workingCard);
-		//bottom_center.add(new JButton(cardImage));
-	
-		
-		workingCard = deck.poll();
+		ImageIcon cardImage = createImageIcon("images/"+workingCard.getImgUri(), "");
 		player_hand.addCard(workingCard);
-		bottom_center.add(new JButton(workingCard.getImgUri())); 
-		
+		bottom_center.add(new JButton(cardImage));
+	
+		workingCard = deck.poll();
+		cardImage = createImageIcon("images/"+workingCard.getImgUri(), "");
+		player_hand.addCard(workingCard);
+		bottom_center.add(new JButton(cardImage));
+	
 		System.out.println(deck.poll().getImgUri());
 		
 		
@@ -137,7 +138,9 @@ public class Window extends JFrame {
 			message_box.setText(message);
 			
 			PlayCard workingCard = deck.poll();
+			ImageIcon cardImage = createImageIcon("images/"+workingCard.getImgUri(), "");
 			player_hand.addCard(workingCard);
+			
 			
 			if(player_hand.isOver21()){
 				message = "PLAYER BUST";
@@ -151,7 +154,7 @@ public class Window extends JFrame {
 		
 			
 			
-			bottom_center.add(new JButton(workingCard.getImgUri())); 
+			bottom_center.add(new JButton(cardImage));			
 			bottom_center.revalidate();
 			bottom_center.validate();
 		
@@ -162,9 +165,11 @@ public class Window extends JFrame {
 			hit.setEnabled(false);
 			while(cpu_hand.count()<14){
 				PlayCard workingCard = deck.poll();
+				ImageIcon cardImage = createImageIcon("images/"+workingCard.getImgUri(), "");				
 				cpu_hand.addCard(workingCard);
 				
-				top_center.add(new JButton(workingCard.getImgUri())); 
+				
+				top_center.add(new JButton(cardImage));
 				top_center.revalidate();
 				top_center.validate();
 				
