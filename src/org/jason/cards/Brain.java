@@ -12,11 +12,14 @@ public class Brain {
 		/*making a window*/
 		
 		Window window = new Window();
-		
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setSize(500, 500);
+		window.setSize(600, 500);
+		window.getContentPane().setBackground(new Color(12,80,12));
+		
+
 		
 		window.setVisible(true);
+	
 	
 		
 		

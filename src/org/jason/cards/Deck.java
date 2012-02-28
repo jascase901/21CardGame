@@ -23,6 +23,9 @@ public class Deck {
 			}
 		}
 	}
+	public void reset(){
+		cards.clear();
+	}
 	public void shuffle(){
 		Collections.shuffle(cards);
 		

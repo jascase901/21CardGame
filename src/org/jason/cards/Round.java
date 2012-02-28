@@ -30,8 +30,8 @@ public  int player(Deck deck, Hand hand){
 	}
 	return hand.count();
 }
-public int cpu(Deck deck, Hand hand){
-	System.out.println("CPU'S Hand");
+public int dealer(Deck deck, Hand hand){
+	System.out.println("Dealer's Hand");
 	/*deal deck to player*/
 	hand.addCard(deck.poll());
 	hand.addCard(deck.poll());

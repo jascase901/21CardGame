@@ -53,9 +53,7 @@ public class PlayCard {
 	public int rawValue(){
 		int raw_value;
 		switch(this.getValue()){
-		case ACE: raw_value =0;//needs special treatment
-			break;
-		case ONE: raw_value = 1;
+		case ACE: raw_value = 0;//needs special treatment
 			break;
 		case TWO: raw_value = 2;
 			break;
